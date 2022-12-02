@@ -9,6 +9,7 @@
 
 <script>
 import PortableText from 'sanity-blocks-vue-component'
+import Table from '~/components/Table'
 
 export default {
   props: {
@@ -32,24 +33,29 @@ export default {
               <figcaption>{node.caption}</figcaption>
             </figure>
           ),
-          table: (props) => 
-            console.log("table:", props) || (
-              <table>
-                <tbody>
-                  {
-                    props.node.rows.map((row, index) => (
-                      <tr>
-                        {
-                          row.cells.map((cell) => {
-                            return (index === 0 ? <th>{cell}</th> : <td>{cell}</td> )
-                          })
-                        } 
-                      </tr>
-                    ))
-                  }
-                </tbody>
-              </table>
-            )
+          table: Table
+          // table: (props) => 
+          //   console.log("table:", props) || (
+          //     <table>
+          //       <tbody>
+          //         {
+          //           props.node.rows.map((row, index) => (
+          //             <tr>
+          //               {
+          //                 row.cells.map((cell) => {
+          //                   let cellContent = h('td', { innerHTML: cell }, slots.default())
+          //                   return cellContent
+          //                   {/* return <div>{cellContent}</div> */}
+          //                   {/* return h('td', { innerHTML: 'hello' }) */}
+          //                   {/* return (index === 0 ? <th>{cell}</th> : <td>{cell}</td> ) */}
+          //                 })
+          //               } 
+          //             </tr>
+          //           ))
+          //         }
+          //       </tbody>
+          //     </table>
+          //   )
         }
       }
     }
