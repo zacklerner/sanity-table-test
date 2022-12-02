@@ -31,7 +31,25 @@ export default {
               />
               <figcaption>{node.caption}</figcaption>
             </figure>
-          )
+          ),
+          table: (props) => 
+            console.log("table:", props) || (
+              <table>
+                <tbody>
+                  {
+                    props.node.rows.map((row, index) => (
+                      <tr>
+                        {
+                          row.cells.map((cell) => {
+                            return (index === 0 ? <th>{cell}</th> : <td>{cell}</td> )
+                          })
+                        } 
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            )
         }
       }
     }
